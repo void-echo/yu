@@ -1,23 +1,21 @@
-# 后端配置: 连接到 wangding 的 GitHub 仓库
+# 已净化的配置文件
 backend:
   name: github
-  repo: void-echo/yu       # 你的 GitHub 用户名 / 仓库名
-  branch: main                     # 工作分支
-  auth_type: pkce                  # 使用更安全的 PKCE 认证方式
-  app_id: Ov23li6e6Al0wxYfIIR6  # 粘贴你上一步获得的 Client ID
+  repo: void-echo/yu
+  branch: main
+  auth_type: pkce
+  app_id: Ov23li6e6Al0wxYfIIR6
 
-# 媒体文件 (上传的图片) 存在哪里
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
-# 定义内容模型 (这里只定义"文章")
 collections:
   - name: "posts"
     label: "文章"
-    folder: "content/posts"          # 新文章保存到 Hugo 的 content/posts 目录
+    folder: "content/posts"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 文件名格式
-    fields:                          # 文章包含的字段
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
       - {label: "文章标题", name: "title", widget: "string"}
       - {label: "发布日期", name: "date", widget: "datetime"}
       - {label: "正文内容", name: "body", widget: "markdown"}
