@@ -1,3 +1,11 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+# 把它设为你最终决定给父亲用的域名
+baseURL = "https://wangy.pages.dev/"
+languageCode = "zh-cn"
+title = "月影的博客" # 你可以和父亲商量一个他喜欢的名字
+theme = "PaperMod"
+
+[params]
+author = "月影"
+description = "月影的个人博客"
+defaultTheme = "auto" # 自动切换日间/夜间模式
+ShowReadingTime = true
