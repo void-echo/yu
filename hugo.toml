@@ -1,4 +1,5 @@
 # 把它设为你最终决定给父亲用的域名
+timeZone = "Asia/Shanghai"
 baseURL = "https://wangy.pages.dev/"
 languageCode = "zh-cn"
 title = "月影的博客" # 你可以和父亲商量一个他喜欢的名字
