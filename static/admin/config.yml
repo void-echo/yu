@@ -17,6 +17,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "文章标题", name: "title", widget: "string"}
-      - {label: "发布日期", name: "date", widget: "datetime"}
+      - label: "发布日期"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DDTHH:mm:ssZ" # 关键是这里
+        time_format: "HH:mm:ss"        # 确保时间部分是可编辑的
       - {label: "正文内容", name: "body", widget: "markdown"}
-      - {label: "设为草稿", name: "draft", widget: "boolean", default: true}
+      - {label: "设为草稿", name: "draft", widget: "boolean", default: false}
