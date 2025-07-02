@@ -3,12 +3,11 @@ backend:
   name: github
   repo: void-echo/yu
   branch: main
-  auth_type: pkce
-  app_id: Ov23li6e6Al0wxYfIIR6
 
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
-
+local_backend: true           # 允许本地开发时测试，可以保留
+locale: 'zh_Hans'             # 后台界面语言，'zh_Hant' 是繁体中文，'zh_Hans' 是简体
 collections:
   - name: "posts"
     label: "文章"
