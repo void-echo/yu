@@ -19,6 +19,7 @@ collections:
       - {label: "文章标题", name: "title", widget: "string"}
       - label: "发布日期"
         name: "date"
+        picker_utc: false # 确保使用本地时区
         widget: "datetime"
         format: "YYYY-MM-DDTHH:mm:ssZ" # 关键是这里
         time_format: "HH:mm:ss"        # 确保时间部分是可编辑的
