@@ -1,12 +1,46 @@
-# 把它设为你最终决定给父亲用的域名
 timeZone = "Asia/Shanghai"
-baseURL = "https://wangy.pages.dev/"
+baseURL = "https://y.wding.org/"
 languageCode = "zh-cn"
-title = "月影的博客" # 你可以和父亲商量一个他喜欢的名字
+title = "月影的博客"
 theme = "PaperMod"
+enableRobotsTXT = true
+enableEmoji = true
+
+[pagination]
+  pagerSize = 10
 
 [params]
-author = "月影"
-description = "月影的个人博客"
-defaultTheme = "auto" # 自动切换日间/夜间模式
-ShowReadingTime = true
+  author = "月影"
+  description = "月影的个人博客 —— 教海拾贝，读书心得，生活感悟"
+  defaultTheme = "auto"        # 自动切换日间/夜间模式
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = false
+  ShowShareButtons = false
+  ShowToc = false
+  hideMeta = false
+
+  [params.homeInfoParams]
+    Title = "月影的博客"
+    Content = "教海拾贝，读书心得，生活感悟。"
+
+[[menu.main]]
+  identifier = "archives"
+  name = "归档"
+  url = "/archives/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "categories"
+  name = "分类"
+  url = "/categories/"
+  weight = 20
+
+# 让 .html 内容文件原样输出（保真），不经过 Markdown 渲染
+[markup.goldmark.renderer]
+  unsafe = true
+
+# 允许 .html 内容文件（默认安全策略会禁止 text/html，这里放行——是博主自有的可信内容）
+[security]
+  allowContent = ['.*']
