@@ -4,8 +4,8 @@
    ============================================================ */
 
 :root {
-  --kai: "Kaiti SC", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", "Source Han Serif SC", serif;
-  --song: "Songti SC", "Source Han Serif SC", "Noto Serif SC", "STSong", "SimSun", "宋体", Georgia, serif;
+  --kai: "LXGW WenKai", "Kaiti SC", "STKaiti", "KaiTi", "楷体", "Noto Serif SC", serif;
+  --song: "LXGW WenKai", "Songti SC", "Source Han Serif SC", "STSong", "SimSun", "宋体", Georgia, serif;
 
   --theme: #f3ead7;     /* 页面：暖宣纸 */
   --entry: #fefcf6;     /* 卡片：近白宣纸 */
@@ -57,15 +57,21 @@ body {
 .masthead {
   position: relative;
   text-align: center;
-  padding: 46px 16px 30px;
-  margin: 6px 0 10px;
+  padding: 60px 18px 46px;
+  margin: 8px 0 14px;
+  border-radius: 12px;
   overflow: hidden;
 }
-.masthead-mountains {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 92px; pointer-events: none;
+.masthead::before {  /* 淡化的米友仁《云山图》，雾化遮罩融入宣纸 */
+  content: ""; position: absolute; inset: 0;
+  background: url("/images/yunshan.jpg") center 26% / cover no-repeat;
+  opacity: .42;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 80%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 80%, transparent);
 }
-.masthead-mountains svg { width: 100%; height: 100%; display: block; }
-.masthead-mountains svg path { fill: var(--primary); }
+.dark .masthead::before { opacity: .3; }
+.masthead > * { position: relative; z-index: 1; }
+.masthead-mountains { display: none; }
 .site-name {
   position: relative;
   font-size: clamp(2.1rem, 6vw, 3rem);
@@ -184,5 +190,9 @@ a { color: var(--accent); }
 }
 .luokuan-text { font-family: var(--kai); color: var(--secondary); letter-spacing: .12em; margin-top: 10px; font-size: .9rem; }
 .footer { font-family: var(--song); }
+
+/* 落英飘落：仅首页，克制低密度 */
+#petals { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+@media (prefers-reduced-motion: reduce) { #petals { display: none; } }
 
 ::selection { background: rgba(158,43,37,.18); }
