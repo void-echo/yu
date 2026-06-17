@@ -1,0 +1,41 @@
+<aside class="sidebar">
+  <section class="widget poem-widget">
+    <div class="widget-moon" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="42" height="42"><path d="M31 5a19 19 0 1 0 12.5 33A15 15 0 0 1 31 5z" fill="#caa94c"/></svg>
+    </div>
+    <p class="poem">举杯邀明月，<br>对影成三人。</p>
+  </section>
+
+  <section class="widget cal-widget">
+    <div class="cal-head" id="calHead">　</div>
+    <table class="cal">
+      <thead><tr><th>日</th><th>一</th><th>二</th><th>三</th><th>四</th><th>五</th><th>六</th></tr></thead>
+      <tbody id="calBody"></tbody>
+    </table>
+  </section>
+
+  <section class="widget seal-widget">
+    <div class="seal-stamp">月影</div>
+    <div class="seal-words">教海拾贝，笔耕不辍</div>
+  </section>
+
+  <script>
+  (function(){
+    var h=document.getElementById('calHead'),b=document.getElementById('calBody');
+    if(!h||!b)return;
+    var d=new Date(),y=d.getFullYear(),m=d.getMonth(),t=d.getDate();
+    var mn=['一','二','三','四','五','六','七','八','九','十','十一','十二'];
+    h.textContent=y+'年 '+mn[m]+'月';
+    var first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
+    var row=document.createElement('tr'),cell=0,i,dd,td;
+    for(i=0;i!==first;i++){row.appendChild(document.createElement('td'));cell++;}
+    for(dd=1;days>=dd;dd++){
+      td=document.createElement('td');td.textContent=dd;
+      if(dd===t)td.className='today';
+      row.appendChild(td);cell++;
+      if(cell%7===0){b.appendChild(row);row=document.createElement('tr');}
+    }
+    if(row.childNodes.length)b.appendChild(row);
+  })();
+  </script>
+</aside>

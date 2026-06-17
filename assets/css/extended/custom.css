@@ -195,4 +195,57 @@ a { color: var(--accent); }
 #petals { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
 @media (prefers-reduced-motion: reduce) { #petals { display: none; } }
 
+/* ---------------- 侧边栏（桌面端利用两侧留白） ---------------- */
+@media (min-width: 1001px) {
+  .home-wrap { display: flex; gap: 30px; max-width: 1180px; margin-inline: auto; padding-inline: 24px; align-items: flex-start; }
+  .home-wrap > .main { max-width: none !important; flex: 1 1 auto; min-width: 0; margin: 0; }
+  .home-wrap > .sidebar { flex: 0 0 284px; position: sticky; top: 86px; }
+}
+@media (max-width: 1000px) { .sidebar { display: none; } }
+.sidebar .widget { background: var(--entry); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(70,45,20,.05); }
+.poem-widget { text-align: center; }
+.widget-moon { margin-bottom: 4px; }
+.poem-title { font-family: var(--kai); color: var(--accent); font-size: .92rem; letter-spacing: .08em; margin-bottom: 10px; }
+.poem { font-family: var(--kai); color: var(--content); font-size: 1.06rem; line-height: 2.1; margin: 0; }
+.cal-widget .cal-head { text-align: center; font-family: var(--kai); color: var(--primary); font-size: 1.05rem; margin-bottom: 10px; }
+.cal { width: 100%; border-collapse: collapse; font-family: var(--song); }
+.cal th { color: var(--secondary); font-weight: 400; font-size: .8rem; padding: 4px 0; }
+.cal td { text-align: center; padding: 5px 0; font-size: .88rem; color: var(--content); }
+.cal td.today { background: var(--accent); color: #fdf3e6; border-radius: 8px; font-weight: 600; }
+.seal-widget { text-align: center; }
+.seal-stamp { display: inline-block; width: 46px; height: 46px; background: var(--accent); color: #fdf3e6; font-family: var(--kai); font-size: 15px; writing-mode: vertical-rl; text-orientation: upright; padding: 6px 0; border-radius: 6px; box-shadow: inset 0 0 0 2px rgba(253,243,230,.35); transform: rotate(-3deg); margin-bottom: 10px; }
+.seal-words { font-family: var(--kai); color: var(--secondary); font-size: .9rem; letter-spacing: .06em; }
+
+/* ---------------- 单篇文章页：套纸卡 + 题饰 ---------------- */
+.post-single {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 40px 44px;
+  box-shadow: 0 2px 12px rgba(70,45,20,.06);
+}
+@media (max-width: 700px) { .post-single { padding: 26px 20px; } }
+.post-single .post-title { font-size: clamp(1.6rem, 4.4vw, 2.15rem); line-height: 1.5; margin-bottom: .25em; }
+.post-single .post-meta { font-family: var(--kai); color: var(--secondary); font-size: .9rem; }
+.post-content { margin-top: 1.4em; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent);
+  background: rgba(158,43,37,.045);
+  padding: 10px 20px; margin: 1.3em 0;
+  font-family: var(--kai); color: var(--secondary);
+  border-radius: 0 8px 8px 0;
+}
+.post-content img { border-radius: 8px; box-shadow: 0 3px 14px rgba(60,40,20,.13); display: block; margin: 1.5em auto; max-width: 100%; height: auto; }
+.post-content h1, .post-content h2, .post-content h3, .post-content h4 { font-family: var(--kai); margin-top: 1.4em; }
+.post-content hr { border: 0; height: 1px; background: linear-gradient(to right, transparent, var(--border) 50%, transparent); margin: 2.2em 0; }
+.post-single .post-content::after {  /* 文末朱砂落款线 */
+  content: ""; display: block; width: 46px; height: 3px;
+  background: var(--accent); opacity: .7; border-radius: 3px; margin: 2.6em auto 0;
+}
+.paginav { margin-top: 22px; }
+.paginav a { border: 1px solid var(--border); border-radius: 10px; background: var(--entry); transition: border-color .18s ease, transform .18s ease; }
+.paginav a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.paginav .title { color: var(--primary); font-family: var(--kai); }
+.paginav .prev, .paginav .next { color: var(--secondary); }
+
 ::selection { background: rgba(158,43,37,.18); }

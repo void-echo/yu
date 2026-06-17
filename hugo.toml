@@ -5,12 +5,14 @@ title = "月影的博客"
 theme = "PaperMod"
 enableRobotsTXT = true
 enableEmoji = true
+defaultContentLanguage = "zh"   # 让 PaperMod 的界面文案走中文（阅读时间等）
 
 [pagination]
   pagerSize = 10
 
 [params]
   author = "月影"
+  DateFormat = "2006年1月2日"
   description = "月影的个人博客 —— 教海拾贝，读书心得，生活感悟"
   defaultTheme = "auto"        # 自动切换日间/夜间模式
   ShowReadingTime = true
